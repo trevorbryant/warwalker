@@ -1,0 +1,25 @@
+---
+# tasks file for kismet
+
+- name: add kismet gpg key
+  apt_key:
+    url: https://www.kismetwireless.net/repos/kismet-release.gpg.key
+    state: present
+
+- name: add repository
+  apt_repository:
+    repo: 'deb https://www.kismetwireless.net/repos/apt/release/focal focal main'
+    state: present
+    filename: kismet
+    update_cache: yes
+
+- name: install kismet
+  apt:
+    name: kismet
+    update_cache: yes
+
+- name: add user to group
+  user:
+    name: ubuntu
+    groups: kismet
+    append: yes

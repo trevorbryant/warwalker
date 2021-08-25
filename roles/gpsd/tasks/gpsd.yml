@@ -1,0 +1,22 @@
+---
+
+- name: install gpsd
+  apt:
+    name: gpsd
+    update_cache: yes
+
+- name: install gpsd-clients
+  apt:
+    name: gpsd-clients
+    update_cache: yes
+
+- name: copy gpsd to /etc/default/gpsd
+  template:
+    src: "templates/gpsd.j2"
+    dest: "/etc/default/gpsd"
+
+- name: restart gpsd daemon
+  ansible.builtin.service:
+    name: gpsd
+    state: restarted
+

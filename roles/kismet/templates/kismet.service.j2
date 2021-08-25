@@ -1,0 +1,17 @@
+[Unit]
+Description=Kismet
+ConditionPathExists=/usr/bin/kismet
+After=network.target auditd.service
+
+[Service]
+User=ubuntu
+Group=kismet
+Type=simple
+ExecStart=/usr/bin/kismet --no-ncurses-wrapper
+KillMode=process
+TimeoutSec=0
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

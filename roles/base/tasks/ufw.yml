@@ -1,0 +1,16 @@
+---
+
+- name: install ufw
+  apt:
+    name: ufw
+    update_cache: yes
+
+- name: enable service and logging
+  ufw:
+    state: enabled
+    logging: high
+
+- name: allow ssh
+  ufw:
+    rule: allow
+    port: ssh

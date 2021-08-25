@@ -1,0 +1,6 @@
+---
+# tasks file for gpsd
+
+- name: install gpsd
+  include: gpsd.yml
+  tags: gpsd

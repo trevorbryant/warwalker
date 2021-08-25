@@ -1,0 +1,17 @@
+---
+# tasks file for prerequisites
+
+- name: install prerequisites
+  include: install.yml
+
+- name: install and configure ufw
+  include: ufw.yml
+  tags: ufw
+
+- name: configure hostname
+  include: hostname.yml
+  tags: hostname
+
+- name: configure timedate
+  include: timedate.yml
+  tags: timedate

@@ -1,0 +1,60 @@
+---
+# tasks file for kismet server
+
+- name: allow kismet server port
+  ufw:
+    rule: allow
+    port: '2501'
+    proto: tcp
+
+- name: stop and disable kismet service
+  ansible.builtin.systemd:
+    name: kismet.service
+    state: stopped
+    enabled: false
+
+- name: ensure /var/log/kismet exists
+  ansible.builtin.file:
+    path: /var/log/kismet
+    state: directory
+    mode: '0777'
+
+- name: ensure {{ ansible_ssh_user }} confdir exists
+  ansible.builtin.file:
+    path: "/home/{{ ansible_ssh_user }}/.kismet"
+    state: directory
+    owner: "{{ ansible_ssh_user }}"
+    group: "{{ ansible_ssh_user }}"
+    mode: '0700'
+
+- name: copy kismet_httpd.conf to {{ ansible_ssh_user }} home
+  template:
+    src: templates/kismet_httpd.conf.j2
+    dest: "/home/{{ ansible_ssh_user }}/.kismet/kismet_httpd.conf"
+    owner: "{{ ansible_ssh_user }}"
+    group: "{{ ansible_ssh_user }}"
+    mode: '0664'
+
+- name: copy kismet.conf to /etc/kismet/kismet.conf
+  template:
+    src: "templates/kismet.conf.j2"
+    dest: "/etc/kismet/kismet.conf"
+
+- name: copy kismet_logging.conf to /etc/kismet/kismet_logging.conf
+  template:
+    src: "templates/kismet_logging.conf.j2"
+    dest: "/etc/kismet/kismet_logging.conf"
+    force: true
+
+- name: copy kismet.service to /etc/systemd/system/kismet.service
+  template:
+    src: "templates/kismet.service.j2"
+    dest: "/etc/systemd/system/kismet.service"
+    force: true
+    
+- name: reload kismet service
+  ansible.builtin.systemd:
+    name: kismet
+    daemon_reload: true
+    state: started
+    enabled: true

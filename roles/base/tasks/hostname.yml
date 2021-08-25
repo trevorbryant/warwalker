@@ -1,0 +1,5 @@
+---
+
+- name: configure hostname with systemd
+  hostname:
+    name: warwalker

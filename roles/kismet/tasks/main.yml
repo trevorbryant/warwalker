@@ -1,0 +1,10 @@
+---
+# tasks file for kismet
+
+- name: install and configure kismet
+  include: install.yml
+  tags: kismet-install
+
+- name: configure kismet server
+  include: server.yml
+  tags: kismet-server

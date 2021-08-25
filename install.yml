@@ -1,0 +1,11 @@
+---
+
+- name: install and configure the warwalker
+  hosts: all
+  gather_facts: false
+  remote_user: ubuntu
+  become: yes
+  roles:
+    - base
+    - gpsd
+    - kismet
