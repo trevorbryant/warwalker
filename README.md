@@ -12,6 +12,8 @@ My hardware configuration consists of:
 
 Instructions
 --------------
+These instructions assume the user is familiar with building a Raspberry Pi and navigating through a Linux environment.
+
 Follow the instructions below after putting together the Raspberry Pi.
 
 1. Download the [Ubuntu Server 20.04.2 LTS](https://ubuntu.com/download/raspberry-pi) for for Raspberry Pi
@@ -22,7 +24,7 @@ Once the device is ready, update the `inventory` file for the IP address or FQDN
 
 1. Update the `inventory` file for the IP address or FQDN
 2. `ssh` into the device and change the default password `ubuntu:ubuntu`, then exit
-3. [Copy an ssh](https://linux.die.net/man/1/ssh-copy-id) using the new password
+3. [Copy an ssh public key](https://linux.die.net/man/1/ssh-copy-id) using the new password
 4. Execute the playbook:
 
 ```
