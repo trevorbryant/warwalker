@@ -10,6 +10,8 @@ My hardware configuration consists of:
 - [GlobalSat BU-353-S4 USB GPS Receiver](https://smile.amazon.com/gp/product/B008200LHW/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1)
 - [Panda Wireless PAU09 N600](https://smile.amazon.com/Panda-Wireless-PAU09-Adapter-Antennas/dp/B01LY35HGO/) x2
 
+Tested on and built for Ubuntu 20.04 LTS.
+
 Instructions
 --------------
 These instructions assume the user is familiar with building a Raspberry Pi and navigating through a Linux environment.
