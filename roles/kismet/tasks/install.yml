@@ -20,6 +20,6 @@
 
 - name: add user to group
   user:
-    name: ubuntu
+    name: "{{ ansible_ssh_user }}"
     groups: kismet
     append: yes
