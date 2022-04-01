@@ -34,3 +34,8 @@ $ ansible-playbook install.yml -i inventory
 ```
 
 Update and reboot the device as needed. Kismet server will start on boot and begin capturing networks.
+
+Roadmap
+--------
+Update the playbook to include [Fedora IoT](https://getfedora.org/en/iot/).
+
