@@ -2,9 +2,9 @@
 # tasks file for kismet
 
 - name: install and configure kismet
-  include: install.yml
+  include_tasks: install.yml
   tags: kismet-install
 
 - name: configure kismet server
-  include: server.yml
+  include_tasks: server.yml
   tags: kismet-server
