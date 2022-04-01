@@ -8,7 +8,7 @@
 - name: enable service and logging
   ufw:
     state: enabled
-    logging: high
+    logging: medium
 
 - name: allow ssh
   ufw:
